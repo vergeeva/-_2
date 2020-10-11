@@ -17,7 +17,7 @@ public:
 			return Count;
 		}
 	}
-
+	String^ element(int i);
 	OBJECT();
 	bool In(String^ f);//Есть ли такой элемент в списке
 	bool Empty(); //Проверка на пустоту
@@ -33,10 +33,9 @@ public:
 
 public ref class Bool_Matrix
 {
-	array <bool^>^ row; //Строки
-	int row_count;
-	array<bool^>^ column; //Столбцы
-	int column_count;
+	bool** matr;
+	int i;
+	int j;
 public:
 	Bool_Matrix();
 	Bool_Matrix(int, int);
@@ -47,8 +46,9 @@ public:
 	//		return Count;
 	//	}
 	//}
-	Bool_Matrix^ Delete_Row();
-	Bool_Matrix^ Delete_Column();
+	Bool_Matrix^ Delete_Row(int i);
+	Bool_Matrix^ Delete_Column(int i);
 	array <bool^>^ get_d(String^, OBJECT^);
+	String^ get_row(int i);
 };
 

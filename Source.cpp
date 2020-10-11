@@ -2,6 +2,11 @@
 using namespace System::IO;
 #define MAX_SIZE 100
 
+String^ OBJECT::element(int i)
+{
+	return Object[i];
+}
+
 OBJECT::OBJECT()
 {
 	Object = gcnew array <String^>(MAX_SIZE);

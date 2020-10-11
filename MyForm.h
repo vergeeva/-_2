@@ -30,8 +30,26 @@ namespace ÒÑÈÑÀ2 {
 	protected:
 		OBJECT^ prop;
 		OBJECT^ obj;
-		void Look_Matrix(OBJECT^ a, OBJECT^ b, Bool_Matrix^ c)
+		void Look_Matrix(OBJECT^ a, OBJECT^ b, Bool_Matrix^ c, System::Windows::Forms::ListBox^ LB)
 		{
+			String^ Line = gcnew String("");
+			for (int i = 0; i < b->Len; i++)
+			{
+				Line += b->element(i);
+			}
+			LB->Items->Add(Line);
+
+		}
+
+		void Look_Matrix(OBJECT^ a, OBJECT^ b, Bool_Matrix^ c, System::Windows::Forms:: DataGridView^ DGW)
+		{
+			DGW->ColumnCount = b->Len;
+			DGW->RowCount = a->Len;
+			String^ Line = gcnew String("");
+			for (int i = 0; i < b->Len; i++)
+			{
+				Line += b->element(i);
+			}
 
 		}
 	private: System::Windows::Forms::ListBox^ listBox1;

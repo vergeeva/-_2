@@ -29,15 +29,15 @@
     <ClCompile Include="MyForm.cpp">
       <Filter>Файлы заголовков</Filter>
     </ClCompile>
+    <ClCompile Include="Header.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Свойства.txt">
       <Filter>Файлы ресурсов</Filter>
     </Text>
     <Text Include="Объекты.txt">
-      <Filter>Файлы ресурсов</Filter>
-    </Text>
-    <Text Include="Матрица.txt">
       <Filter>Файлы ресурсов</Filter>
     </Text>
   </ItemGroup>

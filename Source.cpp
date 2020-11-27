@@ -64,11 +64,24 @@ bool OBJECT::Delete(String^ pr)
 	return 0;
 }
 
+int OBJECT::find(String^ p)
+{
+	for (int i = 0; i < Count; i++)
+	{
+		if (this->Object[i] == p) return i;
+	}
+	return -1;
+}
+
 String^ OBJECT::Random_Object()
 {
-	srand(time(NULL));
-	int i = 0 + rand() % (Count);
-	return Object[i];
+	if (Count != 0)
+	{
+		srand(time(NULL));
+		int i = 0 + rand() % (Count);
+		return Object[i];
+	}
+	else return "Пусто";
 }
 
 bool OBJECT::Clear()
@@ -88,6 +101,7 @@ bool OBJECT::Upload_to(String^ pr)
 		My_SW->Write(Line);
 	}
 	String^ Line = this->Object[Count - 1];
+	My_SW->Write(Line);
 	My_SW->Close();
 	return false;
 }

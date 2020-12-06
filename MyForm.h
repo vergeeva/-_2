@@ -145,7 +145,7 @@ namespace ÒÑÈÑÀ2 {
 
 	private: System::Windows::Forms::Label^ label7;
 	private: System::Windows::Forms::TextBox^ textBox5;
-	private: System::Windows::Forms::Button^ button4;
+
 	private: System::Windows::Forms::TextBox^ textBox6;
 	private: System::Windows::Forms::GroupBox^ groupBox5;
 	private: System::Windows::Forms::Label^ label8;
@@ -205,7 +205,6 @@ namespace ÒÑÈÑÀ2 {
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
-			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
 			this->groupBox5 = (gcnew System::Windows::Forms::GroupBox());
 			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
@@ -426,7 +425,6 @@ namespace ÒÑÈÑÀ2 {
 			this->groupBox4->Controls->Add(this->label6);
 			this->groupBox4->Controls->Add(this->label7);
 			this->groupBox4->Controls->Add(this->textBox5);
-			this->groupBox4->Controls->Add(this->button4);
 			this->groupBox4->Controls->Add(this->textBox6);
 			this->groupBox4->Location = System::Drawing::Point(964, 200);
 			this->groupBox4->Name = L"groupBox4";
@@ -439,15 +437,15 @@ namespace ÒÑÈÑÀ2 {
 			// 
 			this->listBox4->FormattingEnabled = true;
 			this->listBox4->ItemHeight = 16;
-			this->listBox4->Location = System::Drawing::Point(6, 173);
+			this->listBox4->Location = System::Drawing::Point(6, 154);
 			this->listBox4->Name = L"listBox4";
-			this->listBox4->Size = System::Drawing::Size(254, 68);
+			this->listBox4->Size = System::Drawing::Size(272, 84);
 			this->listBox4->TabIndex = 18;
 			// 
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(6, 153);
+			this->label6->Location = System::Drawing::Point(6, 134);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(160, 17);
 			this->label6->TabIndex = 10;
@@ -456,7 +454,7 @@ namespace ÒÑÈÑÀ2 {
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(6, 99);
+			this->label7->Location = System::Drawing::Point(6, 68);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(200, 17);
 			this->label7->TabIndex = 6;
@@ -465,20 +463,10 @@ namespace ÒÑÈÑÀ2 {
 			// textBox5
 			// 
 			this->textBox5->Enabled = false;
-			this->textBox5->Location = System::Drawing::Point(17, 119);
+			this->textBox5->Location = System::Drawing::Point(17, 97);
 			this->textBox5->Name = L"textBox5";
 			this->textBox5->Size = System::Drawing::Size(201, 22);
 			this->textBox5->TabIndex = 7;
-			// 
-			// button4
-			// 
-			this->button4->Location = System::Drawing::Point(17, 60);
-			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(155, 27);
-			this->button4->TabIndex = 6;
-			this->button4->Text = L"Ñãåíåğèğîâàòü";
-			this->button4->UseVisualStyleBackColor = true;
-			this->button4->Click += gcnew System::EventHandler(this, &MyForm::button4_Click);
 			// 
 			// textBox6
 			// 
@@ -622,14 +610,21 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 
 
 private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+
 	String ^ n = obj->Random_Object();
 	textBox3->Text = n;
+	
 	Look_Properties(n, obj, prop, c, listBox3);
 	textBox4->Text = Random_Prop(n, obj, prop, c);
+	textBox6->Text = textBox4->Text;
+	Look_Objects(textBox6->Text, obj, prop, c, listBox4);
+	textBox5->Text = Random_Obj(textBox6->Text, obj, prop, c);
+	//button4_Click(sender,e);
 }
 private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
 	String^ n = prop->Random_Object();
-	textBox6->Text = n;
+	if (textBox6->Text == "") { textBox6->Text = n; }
+	else { n = textBox6->Text; }
 	Look_Objects(n, obj, prop, c, listBox4);
 	textBox5->Text = Random_Obj(n, obj, prop, c);
 }
@@ -685,5 +680,6 @@ private: System::Void radioButton2_CheckedChanged(System::Object^ sender, System
 	textBox1->Text = "";
 	textBox1->Enabled = false;
 }
+
 };
 }
